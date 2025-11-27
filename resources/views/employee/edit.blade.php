@@ -8,8 +8,8 @@
   </head>
   <body>
 
-   <div class="bg-primary py-3">
-    <h1 class="text-white text-center">Employee Management System</h1>
+   <div class="bg-success py-3">
+    <h1 class="text-white text-center">Information Update</h1>
    </div>
 
 
@@ -18,14 +18,14 @@
 
              <div class="row justify-content-center mt-4">
     <div class="col-md-10 d-flex justify-content-end">
-        <a href="{{ route('employee.index') }}" class="btn btn-dark">Back</a>
+        <a href="{{ route('employee.index') }}" class="btn text-white bg-primary">Back</a>
     </div>
 </div>
 
         <div class="row d-flex justify-content-center">
-            <div class="col-md-10">
+          <div class="col-md-10">
                 <div class="card border-0 shadow-lg my-5">
-                    <div class="card-header">
+                   <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
                         <h3 class= "">EDIT Employee</h3>
                     </div>
         

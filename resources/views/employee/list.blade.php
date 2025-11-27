@@ -8,17 +8,18 @@
   </head>
   <body>
 
-   <div class="bg-primary py-3">
-    <h1 class="text-white text-center">Employee list</h1>
-   </div>
+<div class="bg-success py-3">
+    <div class="container text-center">
+    <h1 class="text-white m-0">Employee List</h1>
+</div>
+</div>
+
 
 
 
       <div class='container'>
             <div class="row justify-content-center mt-4">
-    <div class="col-md-10 d-flex justify-content-end">
-        <a href="{{ route('employee.create') }}" class="btn btn-dark">Add New</a>
-    </div>
+   
 </div>
 
 
@@ -36,13 +37,14 @@
 
             <div class="col-md-10">
                 <div class="card border-0 shadow-lg my-5">
-                    <div class="card-header">
-                        <h3 class= "">Employee</h3>
-                    </div>
+                   <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <h3 class="m-0">Employee</h3>
+            <a href="{{ route('employee.create') }}" class="btn btn-lg text-black bg-white" style="min-width: 150px;">+ Add New</a>
+        </div>
                   
                     <div class="card-body">
-                        <table class="table">
-    <thead>
+        <table class="table table-striped">
+  <thead class="">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -68,7 +70,7 @@
                     </td>
                       
               <td>
-                 <a href="{{ route('employee.edit', $employees->id) }}" class="btn btn-dark">EDIT</a>
+                 <a href="{{ route('employee.edit', $employees->id) }}" class="btn text-white bg-primary">EDIT</a>
                 <a href="#" class="btn btn-danger" onclick="deleteProduct({{ $employees->id }});">DELETE</a>
                <form id="delete-employee-form-{{ $employees->id }}" action="{{ route('employee.delete', $employees->id) }}" method="POST" style="display: none;">
                 @csrf
