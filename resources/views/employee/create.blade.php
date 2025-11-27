@@ -22,59 +22,74 @@
                         <h3>CREATE</h3>
                     </div>
         
-                    <form action="{{route("employee.store")}}" method="post">
-                       @csrf
+                   <form action="{{ route('employee.store') }}" method="post">
+    @csrf
 
+    <div class="card-body">
 
-                  <div class="card-body">
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" 
-               class=" @error('name') is-invalid @enderror form-control form-control-lg" 
-               name="name" 
-               id="name" 
-               placeholder="Name">
-        @error('name')
-            <p class="invalid-feedback">{{ $message }}</p>
-        @enderror
+        <!-- Name -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" 
+                   name="name" 
+                   id="name"
+                   class="form-control form-control-lg @error('name') is-invalid @enderror" 
+                   value="{{ old('name') }}" 
+                   placeholder="Name">
+            @error('name')
+                <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" 
+                   name="email" 
+                   id="email" 
+                   class="form-control form-control-lg @error('email') is-invalid @enderror" 
+                   value="{{ old('email') }}" 
+                   placeholder="Email">
+            @error('email')
+                <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- Position -->
+        <div class="mb-3">
+            <label for="position" class="form-label">Position</label>
+            <input type="text" 
+                   name="position" 
+                   id="position" 
+                   class="form-control form-control-lg @error('position') is-invalid @enderror" 
+                   value="{{ old('position') }}" 
+                   placeholder="Position">
+            @error('position')
+                <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- Department -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <input type="text" 
+                   name="department" 
+                   id="department" 
+                   class="form-control form-control-lg @error('department') is-invalid @enderror" 
+                   value="{{ old('department') }}" 
+                   placeholder="Department">
+            @error('department')
+                <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="d-grid">
+            <button class="btn btn-lg btn-primary">SUBMIT</button>
+        </div>
+
     </div>
-
-
-                        <div class="mb-3">
-                            <label for="Email" class="form-label">Email</label>
-                            <input type="text" class=" @error('email') is-invalid @enderror form-control form-control-lg" 
-                            name="email" id="Email" placeholder="Email">
-                             @error('email')
-            <p class="invalid-feedback">{{ $message }}</p>
-        @enderror
-</div>
-
-
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Position</label>
-                            <input type="text" class="form-control form-control-lg" 
-                            name="name" id="position" placeholder="position">
-                    
-
-
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">department</label>
-                            <input type="text" class="form-control form-control-lg" 
-                            name="name" id="" placeholder="department">
-
-                        </div>
-
-                         <div class="d-grid">
-                            <button class="btn btn-lg btn-primary">
-                               SUBMIT
-                            </button>
-                         </div>
-
-
-                    </div>
 </form>
+
                 </div>
             </div>
 
