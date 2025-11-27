@@ -17,3 +17,5 @@ route::post('/employee/store',[EmpController::class,'store'])->name('employee.st
 route::get('/employee/{employee}/edit',[EmpController::class,'edit'])->name('employee.edit');
 
 route::put('/employee/{employee}',[EmpController::class,'update'])->name('employee.update');
+
+route::delete('/employee/{employee}',[EmpController::class,'delete'])->name('employee.delete');

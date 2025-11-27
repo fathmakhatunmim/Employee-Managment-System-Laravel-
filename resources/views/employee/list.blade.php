@@ -55,6 +55,7 @@
     </thead>
     <tbody>
         @if($employee->isNotEmpty())
+        
             @foreach($employee as $employees)
                 <tr>
                     <td>{{ $employees->id }}</td>
@@ -68,15 +69,17 @@
                       
               <td>
                  <a href="{{ route('employee.edit', $employees->id) }}" class="btn btn-dark">EDIT</a>
-                 <a href="#" class="btn btn-danger">DELETE</a>
+                <a href="#" class="btn btn-danger" onclick="deleteProduct({{ $employees->id }});">DELETE</a>
+               <form id="delete-employee-form-{{ $employees->id }}" action="{{ route('employee.delete', $employees->id) }}" method="POST" style="display: none;">
+                @csrf
+             @method('delete')
+           </form>
+
                </td>
         
                 </tr>
             @endforeach
         @else
-            <tr>
-                <td colspan="7" class="text-center">No records found.</td>
-            </tr>
         @endif
     </tbody>
 </table>
@@ -102,3 +105,11 @@
 
   </body>
 </html>
+
+<script>
+    function deleteProduct(id){
+        if(confirm("Are you sure you want to delete this employee?")){
+            document.getElementById("delete-employee-form-"+id).submit();
+        }
+    }
+</script>

@@ -78,17 +78,18 @@ $employee->position = $request->position;
 $employee->department = $request->department;
 $employee->save();
 
-return redirect()->route('employee.index')->with('success', 'Employee added successfully.');
+return redirect()->route('employee.index')->with('success', 'Employee update successfully.');
 
 
 }
 
+    public function delete($id)
+{
+    $employee = Employee::findOrFail($id);
+    $employee->delete(); 
 
+    return redirect()->route('employee.index')->with('success', 'Employee deleted successfully.');
+}
 
-
-
-    public function delete(){
-
-    }
 
 }
