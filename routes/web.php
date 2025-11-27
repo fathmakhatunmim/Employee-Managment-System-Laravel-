@@ -10,3 +10,5 @@ Route::get('/', function () {
 
 
 route::get('/employee/create',[EmpController::class,'create'])->name('employee.create');
+
+route::post('/employee/store',[EmpController::class,'store'])->name('employee.store');

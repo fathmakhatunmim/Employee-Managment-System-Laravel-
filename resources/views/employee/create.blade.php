@@ -21,24 +21,42 @@
                     <div class="card-header">
                         <h3>CREATE</h3>
                     </div>
-                    <div class="card-body">
+        
+                    <form action="{{route("employee.store")}}" method="post">
+                       @csrf
+
+
+                  <div class="card-body">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" 
+               class=" @error('name') is-invalid @enderror form-control form-control-lg" 
+               name="name" 
+               id="name" 
+               placeholder="Name">
+        @error('name')
+            <p class="invalid-feedback">{{ $message }}</p>
+        @enderror
+    </div>
+
+
                         <div class="mb-3">
-                            <label for="" class="form-label">Name</label>
-                            <input type="text" class="form-control form-control-lg" 
-                            name="name" id="" placeholder="name">
+                            <label for="Email" class="form-label">Email</label>
+                            <input type="text" class=" @error('email') is-invalid @enderror form-control form-control-lg" 
+                            name="email" id="Email" placeholder="Email">
+                             @error('email')
+            <p class="invalid-feedback">{{ $message }}</p>
+        @enderror
+</div>
 
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="" class="form-label">Email</label>
-                            <input type="text" class="form-control form-control-lg" 
-                            name="name" id="" placeholder="Email">
 
-                        </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Position</label>
-                            <input type="email" class="form-control form-control-lg" 
-                            name="name" id="" placeholder="position">
+                            <input type="text" class="form-control form-control-lg" 
+                            name="name" id="position" placeholder="position">
+                    
+
 
                         </div>
                         <div class="mb-3">
@@ -56,7 +74,7 @@
 
 
                     </div>
-
+</form>
                 </div>
             </div>
 
