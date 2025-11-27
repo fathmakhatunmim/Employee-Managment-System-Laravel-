@@ -39,6 +39,57 @@
                     <div class="card-header">
                         <h3 class= "">Employee</h3>
                     </div>
+                  
+                    <div class="card-body">
+                        <table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if($employee->isNotEmpty())
+            @foreach($employee as $employees)
+                <tr>
+                    <td>{{ $employees->id }}</td>
+                    <td>{{ $employees->name }}</td>
+                    <td>{{ $employees->Email }}</td> 
+                    <td>{{ $employees->position }}</td>
+                    <td>{{ $employees->department }}</td>
+                    <td>
+                        {{ optional($employees->created_at)->format('d M, Y') ?? '—' }}
+                    </td>
+                      <td>
+                <a href="#" class="btn btn-dark">EDIT</a>
+            </td>
+
+            <td>
+                <a href="#" class="btn btn-danger">DELETE</a>
+            </td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="7" class="text-center">No records found.</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+
+
+                    </div>
+
+
+
+
+
+
                 </div>
             </div>
 
@@ -47,7 +98,7 @@
 
       </div>
     
-
+       
 
 
   </body>

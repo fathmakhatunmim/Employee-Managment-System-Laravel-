@@ -10,11 +10,11 @@ use App\Models\Employee;
 
 class EmpController extends Controller
 {
-    public function index(){
-        return view('employee.list');
+   public function index(){
+    $employee = Employee::orderBy('id', 'ASC')->get();
+    return view('employee.list', ['employee' => $employee]);
+}
 
-
-    }
     public function create(){
             return view('employee.create');
     }
