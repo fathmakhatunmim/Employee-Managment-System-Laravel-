@@ -65,13 +65,12 @@
                     <td>
                         {{ optional($employees->created_at)->format('d M, Y') ?? '—' }}
                     </td>
-                      <td>
-                <a href="#" class="btn btn-dark">EDIT</a>
-            </td>
-
-            <td>
-                <a href="#" class="btn btn-danger">DELETE</a>
-            </td>
+                      
+              <td>
+                 <a href="{{ route('employee.edit', $employees->id) }}" class="btn btn-dark">EDIT</a>
+                 <a href="#" class="btn btn-danger">DELETE</a>
+               </td>
+        
                 </tr>
             @endforeach
         @else

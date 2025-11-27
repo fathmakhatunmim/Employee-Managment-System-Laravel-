@@ -47,12 +47,46 @@ return redirect()->route('employee.index')->with('success', 'Employee added succ
 
 
 
-    public function edit(){
+ public function edit($id)
+{
+    $employee = employee::findOrFail($id);
+    return view('employee.edit',['employee'=>$employee]);
+}
+    
+public function update($id ,Request $request){
 
-    }
-    public function update(){
+    $employee = employee::findOrFail($id);
+     $rules = [
+            'name' => 'required|min:2',
+            'email' => 'required|min:5|email',
 
+        ];
+      $validator = Validator::make($request->all(), $rules);
+
+
+    
+    if ($validator->fails()) {
+        return redirect()->route('employee.edit',$employee->$id)
+                         ->withErrors($validator)
+                         ->withInput();
     }
+       
+
+$employee->name = $request->name;
+$employee->email = $request->email;
+$employee->position = $request->position;
+$employee->department = $request->department;
+$employee->save();
+
+return redirect()->route('employee.index')->with('success', 'Employee added successfully.');
+
+
+}
+
+
+
+
+
     public function delete(){
 
     }
