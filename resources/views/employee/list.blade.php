@@ -55,10 +55,10 @@
     </thead>
     <tbody>
         @if($employee->isNotEmpty())
-        
+            @php $i = 1;
+            @endphp
             @foreach($employee as $employees)
-                <tr>
-                    <td>{{ $employees->id }}</td>
+                    <td>{{ $i++ }}</td>
                     <td>{{ $employees->name }}</td>
                     <td>{{ $employees->Email }}</td> 
                     <td>{{ $employees->position }}</td>
