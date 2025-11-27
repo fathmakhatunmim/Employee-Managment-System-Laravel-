@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Employee;
+
 
 
 class EmpController extends Controller
 {
     public function index(){
+        return view('employee.list');
+
 
     }
     public function create(){
@@ -23,11 +27,21 @@ class EmpController extends Controller
       $validator = Validator::make($request->all(), $rules);
 
 
-      if($validator ->fails()){
-        return redirect()->route('employee.create')->withInput()->withErrors($validator)
-;
-      }
+    
+    if ($validator->fails()) {
+        return redirect()->route('employee.create')
+                         ->withErrors($validator)
+                         ->withInput();
+    }
+       
+  $employee = new Employee();
+$employee->name = $request->name;
+$employee->email = $request->email;
+$employee->position = $request->position;
+$employee->department = $request->department;
+$employee->save();
 
+return redirect()->route('employee.index')->with('success', 'Employee added successfully.');
 
      }
 

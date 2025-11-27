@@ -8,6 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+route::get('/employee',[EmpController::class,'index'])->name('employee.index');
 
 route::get('/employee/create',[EmpController::class,'create'])->name('employee.create');
 

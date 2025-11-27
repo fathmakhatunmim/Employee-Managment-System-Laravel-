@@ -15,11 +15,18 @@
 
 
       <div class='container'>
+
+             <div class="row justify-content-center mt-4">
+    <div class="col-md-10 d-flex justify-content-end">
+        <a href="{{ route('employee.index') }}" class="btn btn-dark">Back</a>
+    </div>
+</div>
+
         <div class="row d-flex justify-content-center">
             <div class="col-md-10">
                 <div class="card border-0 shadow-lg my-5">
                     <div class="card-header">
-                        <h3>CREATE</h3>
+                        <h3 class= "">CREATE</h3>
                     </div>
         
                    <form action="{{ route('employee.store') }}" method="post">
