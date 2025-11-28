@@ -20,8 +20,19 @@ class EmpController extends Controller
     }
      public function store(Request $request){
         $rules = [
-            'name' => 'required|min:2',
-            'email' => 'required|min:5|email',
+            'name' => 'required|min:2|regex:/^[A-Za-z\s]+$/',
+            'email' => ['required','regex:/^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/'
+            
+],
+// ✔ ^ (caret)
+
+// এটার মানে —
+// string-এর শুরু এখান থেকে হবে।
+
+// ✔ $ (dollar)
+
+// এটার মানে —
+// string-এর শেষ এখানে হবে।
 
         ];
       $validator = Validator::make($request->all(), $rules);
@@ -57,7 +68,10 @@ public function update($id ,Request $request){
 
     $employee = employee::findOrFail($id);
      $rules = [
-            'name' => 'required|min:2',
+//         Regex মানে Regular Expression —
+// একটা pattern (নিয়ম) যেটা দিয়ে তুমি string-এর ভেতরে কী কী allow বা reject করবে তা ঠিক করতে পারো।
+
+            'name' => 'required|min:2|regex:/^[A-Za-z\s]+$/',
             'email' => 'required|min:5|email',
 
         ];
